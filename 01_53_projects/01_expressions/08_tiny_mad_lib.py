@@ -8,4 +8,4 @@ def tiny_mad_lib():
     print(f"\n{Sentence_start}\033[1;3m{adjective}\033[0m \033[1;3m{noun}\033[0m that loved to \033[1;3m{verb}\033[0m!")
 
 if __name__ == "__main__":
-    tiny_mad_lib()
+    tiny_mad_lib() 
