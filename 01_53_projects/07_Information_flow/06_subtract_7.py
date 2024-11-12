@@ -6,4 +6,4 @@ def main():
     print(subtract_7(number))
 
 if __name__ == "__main__":
-    main()
+    main() 
