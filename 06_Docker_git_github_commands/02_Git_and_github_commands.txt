@@ -1,0 +1,23 @@
+Git
+    	git config --global user.name "Your Name" (to config username)
+    	git config --global user.email "youremail@example.com"  (to config useremail) 
+    	git config --global init.defaultBranch main (to change branch from master to main)
+	git config --global --unset user.name(to unset username)
+	git config --global --unset user.email(to unset email)
+	git config --list (to check)
+pwd(it will show u where you are)
+ls -a(for hidden files)
+
+
+
+
+GitHub
+	git pull origin main --allow-unrelated-histories
+	git init
+	git remote add origin //link of your repository // then (.git) 
+	For Example : https://github.com/your-username/your-repo-name.git
+	git add .
+	git commit -m "any message"
+	git push origin -u main
+	
+    git remote add origin  https://github.com/Muhammad-Uzair-Yasin/Web.Class.Practice.git
