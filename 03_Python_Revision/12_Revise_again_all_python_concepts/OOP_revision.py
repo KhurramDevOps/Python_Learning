@@ -158,3 +158,67 @@ class Dog:
         print("Woof")
     def __eat(self,meal):
         print(f"{self.__name} is eating {meal}")
+
+c1 = Dog("Bella","germen","4")
+c1.__name = "Bella"  # This will raise an AttributeError
+# c1.__sound()  # This will raise an AttributeError
+# c1.__eat("Biscuit")  # This will raise an AttributeError
+
+#how to access the private attributes
+c1._Dog__name = "Bella"
+c1._Dog__sound()
+c1._Dog__eat("Biscuit")
+print(c1._Dog__name)
+print(c1._Dog__breed)
+print(c1._Dog__age)  # This will print 0 because we didn't pass
+
+
+# POLYMORPHISM
+class Animal:
+    def sound(self):
+        pass
+class Dog(Animal):
+    def sound(self):
+        return "Woof"
+class Cat(Animal):
+        def sound(self):
+            return "Meow"
+      
+      
+c2 = Cat()
+c3 = Dog()
+print(c2.sound())  # Output: Meow
+print(c3.sound())  # Output: Woof
+
+#ABSTRACTION
+from abc import ABC, abstractmethod
+class Shape:
+    @abstractmethod
+    def area(self):
+        pass
+    @abstractmethod
+    def perimeter(self):
+        pass
+    class Circle:
+        def __init__(self,r):
+            self.radius = r
+        def area(self):
+            return 3.14 * (self.radius ** 2)
+        def perimeter(self):
+            return 2 * 3.14 * self.radius
+    class Rectangle:
+        def __init__(self,l,w):
+            self.length = l
+            self.width = w
+        def area(self):
+            return self.length * self.width
+        def perimeter(self):
+            return 2 * (self.length + self.width)
+                
+    c = Circle(5)
+    r = Rectangle(4,5)
+    print(c.area())  
+    print(c.perimeter())  
+    print(r.area())  
+    print(r.perimeter())  
+                
