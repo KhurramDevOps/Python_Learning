@@ -1,0 +1,76 @@
+1.docker version
+
+2.docker pull ubuntu
+
+3.docker run-it ubuntu /bin/bash (interactive model )
+
+4.docker images (it is used to see the list of images)
+
+5.docker image ls
+
+6.docker ps  or docker container ls(it is used to show list of docker container it show only running container)
+
+7.docker ps -a or docker container ls -a(all container running or exited)
+
+8.ps -elf(task manager of Linux)
+
+9.ctrl + c or exit
+10.ctrl + pq (still running}
+
+10.docker logs {container name} (what is running in contaniner) (it give you all history of your command )(we can also check the logs use gui or from docker desktop)
+
+(we can also execute using docker desktop)
+11.docker exec -it {container name} (executing or connecting to running container)
+12 .docker stop name
+13 .doc start name
+14 .docker rm
+15 .docker kill 
+16 . mkdir (folder name)
+17 . touch (file name)
+18 . apt-get update
+19 . apt-get install python
+
+su  (switch user)
+cd - (undo)
+
+ls -l
+
+
+
+ Why the Container Stays Running
+The container stays running because docker exec starts a new process inside the container without affecting the main process. The exit of the interactive session only terminates the process started by docker exec (e.g., the shell), not the container itself. The container's main process remains unaffected and continues to run.
+
+
+
+ docker kill Command
+Purpose: The docker kill command forcefully stops a running container by sending a SIGKILL signal to the main process inside the container.
+Result: The container is immediately terminated without a graceful shutdown. This means that the container doesn't have the opportunity to clean up resources or save the current state.
+2. docker stop Command
+Purpose: The docker stop command gracefully stops a running container by sending a SIGTERM signal followed by a SIGKILL if the process doesn't terminate within a default timeout period (10 seconds by default).
+Result: The container stops running, but it gets the chance to shut down properly, which can include saving data, closing connections, and releasing resources. If the process doesn't stop within the timeout period, Docker sends a SIGKILL to forcefully stop it.
+Usage: docker stop container_name
+3. docker rm Command
+Purpose: The docker rm command removes a stopped container from Docker's list of containers. It deletes the container and its associated resources, but only after the container has already been stopped.
+Result: The container is deleted from the Docker host, and you can no longer start it again. All data inside the container is lost unless volumes were used to persist data outside the container.
+Usage: docker rm container_name
+To remove a running container, you need to stop it first using docker stop or docker kill, or you can use docker rm -f container_name, which forces removal.
+Differences Between docker kill, docker stop, and docker rm
+Signal Sent:
+
+docker kill: Sends a SIGKILL signal to terminate the container immediately.
+docker stop: Sends a SIGTERM signal first, followed by SIGKILL if the container doesn't stop within the timeout period.
+docker rm: Does not send any signals; it removes a container that is already stopped.
+Gracefulness:
+
+docker kill: Forceful and immediate termination without any cleanup.
+docker stop: Graceful shutdown with the opportunity for the container to clean up.
+docker rm: Removes the container from Docker’s management after it has already been stopped.
+Container State:
+
+docker kill: The container is stopped but still exists in the list of containers.
+docker stop: The container is stopped and can be restarted unless removed.
+docker rm: The container is deleted and cannot be restarted unless you recreate it.
+Summary:
+Use docker kill when you need to immediately terminate a container.
+Use docker stop for a graceful shutdown, giving the container time to clean up.
+Use docker rm to remove a stopped container from Docker, effectively deleting it from the system.
