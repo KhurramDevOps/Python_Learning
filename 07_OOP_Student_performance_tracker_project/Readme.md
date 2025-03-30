@@ -1,4 +1,4 @@
-# Student Performance Tracker
+# Student Performance Tracker Project
 
 This Python program allows for the management and tracking of student performance through a command-line interface. It enables users to add student information, calculate averages, and determine passing status.
 
