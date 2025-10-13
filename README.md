@@ -1,4 +1,2 @@
 # All Modern AI Python learning and Work
-# Again Revising Python
-
-
+# Again Revising Python!
